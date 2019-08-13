@@ -10,5 +10,17 @@ export const api = {
                 },
             });
         },
+        create (comment) {
+            console.log(comment);
+
+            return fetch(`${MAIN_URL}/feed`, {
+                method:  'POST',
+                headers: {
+                    'x-no-auth':    groupId,
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify({ comment }),
+            });
+        },
     },
 };
