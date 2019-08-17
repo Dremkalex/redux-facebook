@@ -6,7 +6,7 @@ import { api } from '../../../../REST';
 import { postActions } from '../../actions';
 import { uiActions } from '../../../ui/actions';
 
-export function* fillPosts () {
+export function* fetchPosts () {
     yield put(uiActions.startFetching());
 
     try {
@@ -19,7 +19,7 @@ export function* fillPosts () {
 
         yield put(postActions.fillPosts(posts));
     } catch (error) {
-        yield put(uiActions.emitError(error, 'fillPosts worker'));
+        yield put(uiActions.emitError(error, 'fetchPosts worker'));
     } finally {
         yield put(uiActions.stopFetching());
     }
