@@ -1,9 +1,6 @@
 // Types
 import { types } from './types';
 
-// Instruments
-import { api } from '../../REST';
-
 export const postActions = {
     fillPosts: (posts) => {
         return {
@@ -19,15 +16,10 @@ export const postActions = {
         };
     },
 
-    fetchPostsAsync: () => async (dispatch) => {
-        dispatch({
+    fetchPostsAsync: () => {
+        return {
             type: types.FETCH_POSTS_ASYNC,
-        });
-
-        const response = await api.posts.fetch();
-        const result = await response.json();
-
-        dispatch(postActions.fillPosts(result.data));
+        };
     },
 
     createPostAsync: (comment) => {
