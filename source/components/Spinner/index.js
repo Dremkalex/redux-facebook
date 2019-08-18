@@ -11,7 +11,6 @@ const mapStateToProps = (state) => {
     };
 };
 
-//const mapDispatchToProps =
 @connect(mapStateToProps)
 export default class Spinner extends Component {
     render () {
