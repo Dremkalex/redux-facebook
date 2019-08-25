@@ -23,6 +23,15 @@ export const api = {
                 body: JSON.stringify({ comment }),
             });
         },
+        remove (id) {
+            return fetch(`${MAIN_URL}/feed/${id}`, {
+                method:  'DELETE',
+                headers: {
+                    'Authorization': this.token,
+                    'Content-type':  'application/json',
+                },
+            });
+        },
     },
     auth: {
         signup (userInfo) {
