@@ -1,12 +1,15 @@
 import { MAIN_URL, groupId } from './config';
 
 export const api = {
+    get token () {
+        return localStorage.getItem('token');
+    },
     posts: {
         fetch () {
             return fetch(`${MAIN_URL}/feed`, {
                 method:  'GET',
                 headers: {
-                    'x-no-auth': groupId,
+                    'Authorization': this.token,
                 },
             });
         },
@@ -14,8 +17,8 @@ export const api = {
             return fetch(`${MAIN_URL}/feed`, {
                 method:  'POST',
                 headers: {
-                    'x-no-auth':    groupId,
-                    'Content-type': 'application/json',
+                    'Authorization': this.token,
+                    'Content-type':  'application/json',
                 },
                 body: JSON.stringify({ comment }),
             });
@@ -38,6 +41,23 @@ export const api = {
                     'Content-type': 'application/json',
                 },
                 body: JSON.stringify(credentials),
+            });
+        },
+        authenticate () {
+            return fetch(`${MAIN_URL}/user/login`, {
+                method:  'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify({ token: this.token }),
+            });
+        },
+        logout () {
+            return fetch(`${MAIN_URL}/user/logout`, {
+                method:  'GET',
+                headers: {
+                    'Authorization': this.token,
+                },
             });
         },
     },
