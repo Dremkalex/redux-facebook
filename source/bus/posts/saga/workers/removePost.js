@@ -6,11 +6,11 @@ import { api } from '../../../../REST';
 import { postActions } from '../../actions';
 import { uiActions } from '../../../ui/actions';
 
-export function* removePost ({ payload: id }) {
+export function* removePost ({ payload: postId }) {
     yield put(uiActions.startFetching());
 
     try {
-        const response = yield apply(api, api.posts.remove, [id]);
+        const response = yield apply(api, api.posts.remove, [postId]);
 
         if (response.status !== 204) {
             const { message } = yield apply(response, response.json);
@@ -18,7 +18,7 @@ export function* removePost ({ payload: id }) {
             throw new Error(message);
         }
 
-        yield put(postActions.removePost(id));
+        yield put(postActions.removePost(postId));
     } catch (error) {
         yield put(uiActions.emitError(error, 'removePost worker'));
     } finally {

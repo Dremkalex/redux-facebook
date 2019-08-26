@@ -23,10 +23,16 @@ export const postActions = {
         };
     },
 
-    removePost: (id) => {
+    removePost: (postId) => {
         return {
             type:    types.REMOVE_POST,
-            payload: id,
+            payload: postId,
+        };
+    },
+    likePost: (likedPostData) => {
+        return {
+            type:    types.LIKE_POST,
+            payload: likedPostData,
         };
     },
 
@@ -44,10 +50,16 @@ export const postActions = {
         };
     },
 
-    removePostAsync: (id) => {
+    removePostAsync: (postId) => {
         return {
             type:    types.REMOVE_POST_ASYNC,
-            payload: id,
+            payload: postId,
+        };
+    },
+    likePostAsync: (postId) => {
+        return {
+            type:    types.LIKE_POST_ASYNC,
+            payload: postId,
         };
     },
 };
