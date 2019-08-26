@@ -19,6 +19,7 @@ export const socketActions = {
 
             dispatch(postActions.createPost(post));
         });
+
         socket.on('like', (event) => {
             const { data, meta } = JSON.parse(event);
 
@@ -34,6 +35,12 @@ export const socketActions = {
             } else {
                 dispatch(postActions.unlikePost(data));
             }
+        });
+
+        socket.on('remove', (event) => {
+            const { data: postId } = JSON.parse(event);
+
+            dispatch(postActions.removePost(postId));
         });
 
     },
