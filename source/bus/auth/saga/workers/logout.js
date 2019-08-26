@@ -4,11 +4,12 @@ import { replace } from 'react-router-redux';
 
 // Instruments
 import { api } from '../../../../REST';
+import { book } from '../../../../navigation/book';
 import { uiActions } from '../../../ui/actions';
 import { profileActions } from '../../../profile/actions';
 import { postActions } from '../../../posts/actions';
 import { authActions } from '../../actions';
-import { book } from '../../../../navigation/book';
+import { usersActions } from '../../../users/actions';
 
 export function* logout () {
     yield put(uiActions.startFetching());
@@ -29,6 +30,7 @@ export function* logout () {
         yield apply(localStorage, localStorage.removeItem, ['remember']);
         yield put(profileActions.clearProfile());
         yield put(postActions.clearPosts());
+        yield put(usersActions.clearUsers());
         yield put(uiActions.stopFetching());
         yield put(authActions.logout());
         yield put(replace(book.login));
