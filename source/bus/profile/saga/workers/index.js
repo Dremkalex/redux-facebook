@@ -1,1 +1,2 @@
-export { worker } from './worker';
+export { updateName } from './updateName';
+export { updateAtatar } from './updateAvatar';
