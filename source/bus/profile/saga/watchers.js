@@ -5,7 +5,7 @@ import { takeEvery, all, call } from 'redux-saga/effects';
 import { types } from '../types';
 
 // Workers
-import { updateName, updateAtatar } from './workers';
+import { updateName, updateAtatar, updatePassword } from './workers';
 
 function* watchUpdateName () {
     yield takeEvery(types.UPDATE_NAME_ASYNC, updateName);
@@ -15,6 +15,10 @@ function* watchUpdateAvatar () {
     yield takeEvery(types.UPDATE_AVATAR_ASYNC, updateAtatar);
 }
 
+function* watchUpdatePassword () {
+    yield takeEvery(types.UPDATE_PASSWORD_ASYNC, updatePassword);
+}
+
 export function* watchProfile () {
-    yield all([call(watchUpdateName), call(watchUpdateAvatar)]);
+    yield all([call(watchUpdateName), call(watchUpdateAvatar), call(watchUpdatePassword)]);
 }

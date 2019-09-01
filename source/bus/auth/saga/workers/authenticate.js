@@ -5,7 +5,7 @@ import { actions } from 'react-redux-form';
 // Instruments
 import { api } from '../../../../REST';
 import { uiActions } from '../../../ui/actions';
-import { authActions } from '../../actions';
+import { authActions } from '../../../auth/actions';
 import { profileActions } from '../../../profile/actions';
 
 export function* authenticate () {
