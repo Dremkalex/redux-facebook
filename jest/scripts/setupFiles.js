@@ -7,6 +7,23 @@ const errorMessage = 'TEST_ERROR_MESSAGE.';
 const token = 'TEST_TOKEN';
 const error = new Error(errorMessage);
 
+const users = [
+    {
+        id:        "id-01",
+        firstName: "Name-01",
+        lastName:  "LastName-0",
+        avatar:
+            "https://lab.lectrum.io/redux/api/image/avatar-01/placeholder.jpg",
+    },
+    {
+        id:        "id-02",
+        firstName: "Name-02",
+        lastName:  "LastName-02",
+        avatar:
+            "https://lab.lectrum.io/redux/api/image/avatar-02/placeholder.jpg",
+    }
+];
+
 const userProfile = {
     id:        'TEST_ID',
     avatar:    'TEST_AVATAR',
@@ -49,6 +66,7 @@ const url = 'https://www.url.com';
 
 global.__ = {
     userProfile,
+    users,
     errorMessage,
     token,
     error,
