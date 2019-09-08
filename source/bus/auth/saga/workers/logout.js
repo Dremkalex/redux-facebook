@@ -9,7 +9,7 @@ import { book } from '../../../../navigation/book';
 import { uiActions } from '../../../ui/actions';
 import { profileActions } from '../../../profile/actions';
 import { postActions } from '../../../posts/actions';
-import { authActions } from '../../actions';
+import { authActions } from '../../../auth/actions';
 import { usersActions } from '../../../users/actions';
 
 export function* logout () {
