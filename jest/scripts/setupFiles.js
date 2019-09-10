@@ -11,7 +11,7 @@ const users = [
     {
         id:        "id-01",
         firstName: "Name-01",
-        lastName:  "LastName-0",
+        lastName:  "LastName-01",
         avatar:
             "https://lab.lectrum.io/redux/api/image/avatar-01/placeholder.jpg",
     },
@@ -64,6 +64,18 @@ const fetchResponseFail400 = {
 
 const url = 'https://www.url.com';
 
+const newName = {
+    firstName: 'Simon',
+    lastName:  'Pirson',
+};
+
+const newAvatar = ['avatar'];
+
+const newPassword = {
+    oldPassword: '12345',
+    NewPassword: '123456',
+};
+
 global.__ = {
     userProfile,
     users,
@@ -77,6 +89,9 @@ global.__ = {
     fetchResponseFail400,
     credentials,
     url,
+    newName,
+    newAvatar,
+    newPassword,
 };
 global.fetch = fetch;
 global.localStorage = new LocalStorage();
